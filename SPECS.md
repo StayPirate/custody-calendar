@@ -45,6 +45,7 @@ L'interfaccia e' volutamente **minimale e priva di elementi superflui**, con l'o
 - La cella e' divisa in due meta' uguali (superiore = mattina, inferiore = pomeriggio), entrambe cliccabili.
 - Nessuna label, icona o testo aggiuntivo all'interno della cella.
 - Il colore di sfondo di ciascuna meta' indica l'assegnazione corrente.
+- Quando entrambe le meta' hanno la stessa assegnazione, il colore viene applicato uniformemente all'intera cella, evitando artefatti visivi (righe bianche) tra le due meta'.
 
 **Pulsanti di azione:**
 - I pulsanti di azione (Bacchetta Magica, Reset, Esporta PDF, iCal) sono raggruppati dietro un singolo pulsante "+" (FAB toggle) posizionato fisso in basso a destra dello schermo.

@@ -51,7 +51,6 @@ function AuthenticatedApp({ userId, userName, onSignOut }: {
   return (
     <div className="app">
       <Header
-        year={year}
         month={month}
         userName={userName}
         onPreviousMonth={goToPreviousMonth}

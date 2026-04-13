@@ -4,7 +4,6 @@ export const MONTH_NAMES = [
 ];
 
 interface HeaderProps {
-  year: number;
   month: number;
   userName: string | null;
   onPreviousMonth: () => void;
@@ -13,7 +12,6 @@ interface HeaderProps {
 }
 
 function Header({
-  year,
   month,
   userName,
   onPreviousMonth,

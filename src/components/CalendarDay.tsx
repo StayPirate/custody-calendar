@@ -20,17 +20,22 @@ function CalendarDay({
   onSlotClick,
   isWeekend,
 }: CalendarDayProps) {
+  const sameColor = morningAssignment && morningAssignment === afternoonAssignment;
+
   return (
-    <div className={`calendar-day${isWeekend ? " calendar-day-weekend" : ""}`}>
+    <div
+      className={`calendar-day${isWeekend ? " calendar-day-weekend" : ""}`}
+      style={sameColor ? { backgroundColor: COLORS[morningAssignment] } : undefined}
+    >
       <div className="day-number">{day}</div>
       <div
         className="day-half"
-        style={{ backgroundColor: morningAssignment ? COLORS[morningAssignment] : "transparent" }}
+        style={{ backgroundColor: sameColor ? "transparent" : (morningAssignment ? COLORS[morningAssignment] : "transparent") }}
         onClick={() => onSlotClick(day, "morning")}
       />
       <div
         className="day-half"
-        style={{ backgroundColor: afternoonAssignment ? COLORS[afternoonAssignment] : "transparent" }}
+        style={{ backgroundColor: sameColor ? "transparent" : (afternoonAssignment ? COLORS[afternoonAssignment] : "transparent") }}
         onClick={() => onSlotClick(day, "afternoon")}
       />
     </div>
