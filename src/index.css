@@ -99,8 +99,8 @@ main .loading {
 
 .app {
   width: 100%;
-  max-width: 1100px;
-  padding: 0.75rem;
+  max-width: 1400px;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -178,6 +178,14 @@ main .loading {
   color: white;
 }
 
+/* Main */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Calendar */
 
 .calendar {
@@ -207,6 +215,7 @@ main .loading {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
   flex: 1;
 }
 
@@ -217,7 +226,7 @@ main .loading {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 70px;
+  min-height: 0;
 }
 
 .calendar-day-empty {
@@ -306,10 +315,6 @@ main .loading {
     min-width: 130px;
   }
 
-  .calendar-day {
-    min-height: 55px;
-  }
-
   .day-number {
     font-size: 0.65rem;
   }
@@ -340,10 +345,6 @@ main .loading {
     width: 32px;
     height: 32px;
     font-size: 0.9rem;
-  }
-
-  .calendar-day {
-    min-height: 45px;
   }
 
   .day-number {
