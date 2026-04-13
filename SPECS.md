@@ -151,7 +151,25 @@ calendars/
 5. **Registrare gli account Google** dei due genitori come utenti autorizzati.
 6. **Configurare GitHub Pages** per servire dal branch `www`.
 7. **Configurare il dominio custom** `calendar.gianlu.ca` sulla web console di **Cloudflare**: creare un record CNAME che punti a `staypirate.github.io` e configurare le impostazioni SSL/TLS.
-8. **Creare il repository GitHub** e configurare i secrets necessari per la GitHub Action (se richiesto per il deploy delle Cloud Functions).
+8. **Creare il service account e configurare il GitHub Secret**:
+   - Generare una chiave JSON del service account da **Firebase Console > Project Settings > Service accounts > Generate new private key**.
+   - Su GitHub, nel repository del progetto, andare su **Settings > Secrets and variables > Actions** e creare un nuovo secret chiamato `FIREBASE_SERVICE_ACCOUNT` contenente il contenuto del file JSON scaricato.
+9. **Assegnare i ruoli IAM al service account** creato al punto 8. Su **Google Cloud Console > IAM & Admin > IAM**, trovare il service account e assegnare i seguenti ruoli:
+   - Firebase Admin (`roles/firebase.admin`)
+   - Cloud Functions Admin (`roles/cloudfunctions.admin`)
+   - Cloud Run Admin (`roles/run.admin`)
+   - Cloud Datastore User (`roles/datastore.user`)
+   - Firebase Rules Admin (`roles/firebaserules.admin`)
+   - Service Usage Consumer (`roles/serviceusage.serviceUsageConsumer`)
+   - Artifact Registry Administrator (`roles/artifactregistry.admin`)
+   - Service Account User (`roles/iam.serviceAccountUser`)
+10. **Abilitare le Google Cloud API richieste**. Su **Google Cloud Console > APIs & Services > Library**, cercare e abilitare le seguenti API:
+    - Cloud Functions API (`cloudfunctions.googleapis.com`)
+    - Cloud Build API (`cloudbuild.googleapis.com`)
+    - Artifact Registry API (`artifactregistry.googleapis.com`)
+    - Cloud Run API (`run.googleapis.com`)
+    - Eventarc API (`eventarc.googleapis.com`)
+    - Cloud Billing API (`cloudbilling.googleapis.com`)
 
 ### Configurazione nel codice
 
