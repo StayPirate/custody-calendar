@@ -1,4 +1,4 @@
-const MONTH_NAMES = [
+export const MONTH_NAMES = [
   "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
   "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
 ];
@@ -9,6 +9,9 @@ interface HeaderProps {
   userName: string | null;
   onPreviousMonth: () => void;
   onNextMonth: () => void;
+  onMagicWand: () => void;
+  onReset: () => void;
+  onExportPdf: () => void;
   onSignOut: () => void;
 }
 
@@ -18,6 +21,9 @@ function Header({
   userName,
   onPreviousMonth,
   onNextMonth,
+  onMagicWand,
+  onReset,
+  onExportPdf,
   onSignOut,
 }: HeaderProps) {
   return (
@@ -34,6 +40,17 @@ function Header({
         </span>
         <button className="nav-button" onClick={onNextMonth} title="Mese successivo">
           &rarr;
+        </button>
+      </div>
+      <div className="header-actions">
+        <button className="action-button action-magic" onClick={onMagicWand} title="Applica regole settimanali">
+          Bacchetta Magica
+        </button>
+        <button className="action-button action-reset" onClick={onReset} title="Resetta tutti gli slot del mese">
+          Reset
+        </button>
+        <button className="action-button action-pdf" onClick={onExportPdf} title="Esporta in PDF">
+          PDF
         </button>
       </div>
       <div className="header-right">

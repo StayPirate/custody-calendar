@@ -153,6 +153,58 @@ main .loading {
   border-color: var(--color-primary);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+  color: var(--color-text);
+}
+
+.action-button:hover {
+  transform: scale(1.02);
+}
+
+.action-magic {
+  border-color: #ab47bc;
+  color: #ab47bc;
+}
+
+.action-magic:hover {
+  background-color: #ab47bc;
+  color: white;
+}
+
+.action-reset {
+  border-color: #ef5350;
+  color: #ef5350;
+}
+
+.action-reset:hover {
+  background-color: #ef5350;
+  color: white;
+}
+
+.action-pdf {
+  border-color: #66bb6a;
+  color: #66bb6a;
+}
+
+.action-pdf:hover {
+  background-color: #66bb6a;
+  color: white;
+}
+
 .header-right {
   display: flex;
   align-items: center;
