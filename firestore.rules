@@ -14,9 +14,10 @@ service cloud.firestore {
 
     match /calendars/{monthId}/slots/{slotId} {
       allow read: if isAuthorized();
-      allow write: if isAuthorized()
+      allow create, update: if isAuthorized()
         && request.resource.data.keys().hasAll(["assignedTo", "updatedBy", "updatedAt"])
         && request.resource.data.updatedBy == request.auth.uid;
+      allow delete: if isAuthorized();
     }
   }
 }
