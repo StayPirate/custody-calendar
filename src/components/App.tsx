@@ -1,5 +1,51 @@
 import { useAuth } from "../hooks/useAuth";
+import { useCalendar } from "../hooks/useCalendar";
 import LoginPage from "./LoginPage";
+import Header from "./Header";
+import Calendar from "./Calendar";
+
+function AuthenticatedApp({ userId, userName, onSignOut }: {
+  userId: string;
+  userName: string | null;
+  onSignOut: () => void;
+}) {
+  const {
+    year,
+    month,
+    loading,
+    cycleSlot,
+    getSlotAssignment,
+    goToPreviousMonth,
+    goToNextMonth,
+  } = useCalendar(userId);
+
+  return (
+    <div className="app">
+      <Header
+        year={year}
+        month={month}
+        userName={userName}
+        onPreviousMonth={goToPreviousMonth}
+        onNextMonth={goToNextMonth}
+        onSignOut={onSignOut}
+      />
+      <main>
+        {loading ? (
+          <div className="loading">
+            <p>Caricamento calendario...</p>
+          </div>
+        ) : (
+          <Calendar
+            year={year}
+            month={month}
+            getSlotAssignment={getSlotAssignment}
+            onSlotClick={cycleSlot}
+          />
+        )}
+      </main>
+    </div>
+  );
+}
 
 function App() {
   const { user, loading, signIn, signOut } = useAuth();
@@ -17,20 +63,11 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Custody Calendar</h1>
-        <div className="user-info">
-          <span>{user.displayName}</span>
-          <button className="sign-out-button" onClick={signOut}>
-            Esci
-          </button>
-        </div>
-      </header>
-      <main>
-        <p>Benvenuto, {user.displayName}! Il calendario arrivera' presto.</p>
-      </main>
-    </div>
+    <AuthenticatedApp
+      userId={user.uid}
+      userName={user.displayName}
+      onSignOut={signOut}
+    />
   );
 }
 
