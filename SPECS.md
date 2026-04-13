@@ -37,7 +37,7 @@ L'interfaccia e' volutamente **minimale e priva di elementi superflui**, con l'o
 - L'interazione principale (assegnazione degli slot) avviene con un singolo click.
 
 **Header:**
-- Contiene solo la navigazione tra i mesi (frecce + nome mese/anno) e le informazioni utente (nome + pulsante Esci).
+- Contiene solo la navigazione tra i mesi (frecce + nome mese) e le informazioni utente (nome + pulsante Esci).
 - Nessun pulsante di azione nell'header.
 
 **Cella giornaliera:**

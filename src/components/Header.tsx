@@ -27,7 +27,7 @@ function Header({
           &larr;
         </button>
         <span className="month-display">
-          {MONTH_NAMES[month]} {year}
+          {MONTH_NAMES[month]}
         </span>
         <button className="nav-button" onClick={onNextMonth} title="Mese successivo">
           &rarr;
