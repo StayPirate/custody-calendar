@@ -20,11 +20,40 @@ Applicazione web per gestire il calendario di affidamento condiviso di una figli
 
 ### Interazione sugli Slot
 
-- L'assegnazione avviene tramite click ciclico sullo slot:
-  1. Click su slot bianco -> diventa **rosa** (mamma)
+- L'assegnazione avviene tramite click diretto sulla meta' della cella corrispondente al periodo desiderato (meta' superiore = mattina, meta' inferiore = pomeriggio).
+- Il click cicla tra i tre stati:
+  1. Click su slot trasparente -> diventa **rosa** (mamma)
   2. Click su slot rosa -> diventa **azzurro** (papa')
-  3. Click su slot azzurro -> torna **bianco** (non assegnato)
+  3. Click su slot azzurro -> torna **trasparente** (non assegnato)
 - Il ciclo si ripete continuamente.
+
+### Interfaccia Utente
+
+L'interfaccia e' volutamente **minimale e priva di elementi superflui**, con l'obiettivo di essere immediata da usare senza necessita' di spiegazioni. L'applicazione e' localizzata esclusivamente in italiano.
+
+**Principi di design:**
+- Nessuna label, icona decorativa o testo non strettamente necessario.
+- Le azioni disponibili sono ridotte al minimo indispensabile.
+- L'interazione principale (assegnazione degli slot) avviene con un singolo click.
+
+**Header:**
+- Contiene solo la navigazione tra i mesi (frecce + nome mese/anno) e le informazioni utente (nome + pulsante Esci).
+- Nessun pulsante di azione nell'header.
+
+**Cella giornaliera:**
+- Contiene unicamente il numero del giorno, posizionato in alto a destra.
+- La cella e' divisa in due meta' uguali (superiore = mattina, inferiore = pomeriggio), entrambe cliccabili.
+- Nessuna label, icona o testo aggiuntivo all'interno della cella.
+- Il colore di sfondo di ciascuna meta' indica l'assegnazione corrente.
+
+**Pulsanti di azione:**
+- I pulsanti Bacchetta Magica, Reset e Esporta PDF sono posizionati come **Floating Action Buttons (FAB)** fissi in basso a destra dello schermo.
+
+**Responsivita':**
+- Il layout e' responsive e ottimizzato per l'uso sia da desktop che da dispositivi mobili.
+- Su desktop: celle con altezza generosa, griglia spaziata.
+- Su mobile: celle piu' compatte, il calendario si adatta al viewport disponibile senza necessita' di scroll orizzontale.
+- Le dimensioni delle celle si adattano dinamicamente allo schermo.
 
 ### Pulsante "Bacchetta Magica"
 
@@ -95,11 +124,13 @@ Riporta **tutti** gli slot del mese attualmente visualizzato a bianco (non asseg
 
 ### Colori
 
-| Stato            | Colore   |
-|------------------|----------|
-| Non assegnato    | Bianco   |
-| Mamma            | Rosa     |
-| Papa'            | Azzurro  |
+| Stato            | Colore                    | Codice       |
+|------------------|---------------------------|--------------|
+| Non assegnato    | Trasparente               | `transparent`|
+| Mamma            | Rosa semi-trasparente      | `#ffbdfd80`  |
+| Papa'            | Azzurro semi-trasparente   | `#5c9af780`  |
+
+I colori sono semi-trasparenti per permettere di scrivere a penna sopra il calendario stampato mantenendo la leggibilita' delle scritte.
 
 ---
 
@@ -170,6 +201,7 @@ calendars/
     - Cloud Run API (`run.googleapis.com`)
     - Eventarc API (`eventarc.googleapis.com`)
     - Cloud Billing API (`cloudbilling.googleapis.com`)
+11. **Aggiungere il dominio custom ai domini autorizzati di Firebase Authentication**: su **Firebase Console > Authentication > Settings > Authorized domains**, aggiungere il dominio dell'applicazione (es. `calendar.gianlu.ca`).
 
 ### Configurazione nel codice
 

@@ -1,5 +1,9 @@
-import Slot from "./Slot";
 import type { SlotAssignment, DayPeriod } from "../types";
+
+const COLORS: Record<string, string> = {
+  mom: "#ffbdfd80",
+  dad: "#5c9af780",
+};
 
 interface CalendarDayProps {
   day: number;
@@ -19,18 +23,16 @@ function CalendarDay({
   return (
     <div className={`calendar-day${isWeekend ? " calendar-day-weekend" : ""}`}>
       <div className="day-number">{day}</div>
-      <div className="day-slots">
-        <Slot
-          assignment={morningAssignment}
-          period="morning"
-          onClick={() => onSlotClick(day, "morning")}
-        />
-        <Slot
-          assignment={afternoonAssignment}
-          period="afternoon"
-          onClick={() => onSlotClick(day, "afternoon")}
-        />
-      </div>
+      <div
+        className="day-half"
+        style={{ backgroundColor: morningAssignment ? COLORS[morningAssignment] : "transparent" }}
+        onClick={() => onSlotClick(day, "morning")}
+      />
+      <div
+        className="day-half"
+        style={{ backgroundColor: afternoonAssignment ? COLORS[afternoonAssignment] : "transparent" }}
+        onClick={() => onSlotClick(day, "afternoon")}
+      />
     </div>
   );
 }
