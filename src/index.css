@@ -263,14 +263,47 @@ main {
 
 /* FAB - Floating Action Buttons */
 
+.fab-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+}
+
 .fab-container {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
   gap: 0.5rem;
   z-index: 10;
 }
+
+.fab-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fab-actions .fab {
+  opacity: 0;
+  transform: scale(0) translateY(20px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.fab-container.open .fab-actions .fab {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.fab-container.open .fab-actions .fab:nth-child(1) { transition-delay: 0ms; }
+.fab-container.open .fab-actions .fab:nth-child(2) { transition-delay: 40ms; }
+.fab-container.open .fab-actions .fab:nth-child(3) { transition-delay: 80ms; }
+.fab-container.open .fab-actions .fab:nth-child(4) { transition-delay: 120ms; }
 
 .fab {
   width: 48px;
@@ -290,6 +323,19 @@ main {
 .fab:hover {
   background-color: #d0d0d0;
   transform: scale(1.05);
+}
+
+.fab-toggle {
+  width: 52px;
+  height: 52px;
+}
+
+.fab-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.fab-container.open .fab-toggle svg {
+  transform: rotate(45deg);
 }
 
 .fab-reset:hover {
@@ -468,6 +514,11 @@ main {
   .fab {
     width: 40px;
     height: 40px;
+  }
+
+  .fab-toggle {
+    width: 44px;
+    height: 44px;
   }
 
   .fab svg {

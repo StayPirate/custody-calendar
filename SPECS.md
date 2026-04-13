@@ -47,7 +47,10 @@ L'interfaccia e' volutamente **minimale e priva di elementi superflui**, con l'o
 - Il colore di sfondo di ciascuna meta' indica l'assegnazione corrente.
 
 **Pulsanti di azione:**
-- I pulsanti Bacchetta Magica, Reset e Esporta PDF sono posizionati come **Floating Action Buttons (FAB)** fissi in basso a destra dello schermo.
+- I pulsanti di azione (Bacchetta Magica, Reset, Esporta PDF, iCal) sono raggruppati dietro un singolo pulsante "+" (FAB toggle) posizionato fisso in basso a destra dello schermo.
+- Cliccando il "+", i pulsanti appaiono verticalmente verso l'alto con un'animazione a cascata. Il "+" ruota di 45° diventando una "x".
+- Cliccando fuori dal menu o sulla "x" il menu si richiude.
+- Tutti i pulsanti FAB hanno lo stesso stile e colore.
 
 **Responsivita':**
 - Il layout e' responsive e ottimizzato per l'uso sia da desktop che da dispositivi mobili.
