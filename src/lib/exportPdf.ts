@@ -32,7 +32,7 @@ export async function exportCalendarToPdf(monthName: string, year: number): Prom
 
   // Aggiungi titolo
   pdf.setFontSize(16);
-  pdf.text(`${monthName} ${year}`, pageWidth / 2, margin + 6, { align: "center" });
+  pdf.text(monthName, pageWidth / 2, margin + 6, { align: "center" });
 
   // Calcola le dimensioni dell'immagine per adattarla alla pagina
   const availableWidth = pageWidth - margin * 2;
