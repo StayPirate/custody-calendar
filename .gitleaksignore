@@ -1,0 +1,4 @@
+# Firebase API keys are public by design.
+# Security is enforced via Firestore rules and Firebase Authentication.
+# See: https://firebase.google.com/docs/projects/api-keys
+src/lib/firebase.ts:gcp-api-key:6

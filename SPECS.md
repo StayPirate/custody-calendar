@@ -128,8 +128,10 @@ calendars/
   1. `npm install` - installazione dipendenze
   2. `npm run build` - build di produzione (Vite)
   3. Copia del contenuto della build nella **root** del branch **`www`**
+  4. Inclusione del file **`CNAME`** (contenente `calendar.gianlu.ca`) nel branch `www`, necessario per il corretto funzionamento del dominio custom su GitHub Pages
 - GitHub Pages e' configurato per servire dal branch `www`.
-- Il branch `www` contiene esclusivamente i file compilati (HTML, JS, CSS), non il codice sorgente.
+- Il branch `www` contiene esclusivamente i file compilati (HTML, JS, CSS) e il file `CNAME`, non il codice sorgente.
+- L'applicazione e' raggiungibile tramite il dominio custom **`calendar.gianlu.ca`**, gestito attraverso Cloudflare.
 
 ### Cloud Functions
 
@@ -148,7 +150,8 @@ calendars/
 4. **Upgrade al piano Blaze** (pay-as-you-go) per abilitare le Cloud Functions. Richiede una carta di credito, ma l'uso rimane nella quota gratuita per volumi bassi.
 5. **Registrare gli account Google** dei due genitori come utenti autorizzati.
 6. **Configurare GitHub Pages** per servire dal branch `www`.
-7. **Creare il repository GitHub** e configurare i secrets necessari per la GitHub Action (se richiesto per il deploy delle Cloud Functions).
+7. **Configurare il dominio custom** `calendar.gianlu.ca` sulla web console di **Cloudflare**: creare un record CNAME che punti a `staypirate.github.io` e configurare le impostazioni SSL/TLS.
+8. **Creare il repository GitHub** e configurare i secrets necessari per la GitHub Action (se richiesto per il deploy delle Cloud Functions).
 
 ### Configurazione nel codice
 
