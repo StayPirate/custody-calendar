@@ -4,12 +4,11 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // Solo gli utenti autorizzati possono leggere e scrivere
-    // TODO: Sostituire le email placeholder con quelle reali di mamma e papa'
     function isAuthorized() {
       return request.auth != null
         && request.auth.token.email in [
-          "MAMMA_EMAIL@gmail.com",
-          "PAPA_EMAIL@gmail.com"
+          "zuzanahauznerova@gmail.com",
+          "sprite.lol@gmail.com"
         ];
     }
 
