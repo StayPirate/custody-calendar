@@ -54,6 +54,8 @@ L'interfaccia e' volutamente **minimale e priva di elementi superflui**, con l'o
 - Su desktop: celle con altezza generosa, griglia spaziata.
 - Su mobile: celle piu' compatte, il calendario si adatta al viewport disponibile senza necessita' di scroll orizzontale.
 - Le dimensioni delle celle si adattano dinamicamente allo schermo.
+- L'altezza massima del calendario e' limitata a 900px; su viewport piu' piccoli si adatta al 100% dell'altezza disponibile.
+- Il calendario e' ancorato in alto nella pagina (non centrato verticalmente).
 
 ### Pulsante "Bacchetta Magica"
 
