@@ -91,6 +91,12 @@ Riporta **tutti** gli slot del mese attualmente visualizzato a bianco (non asseg
   - **Feed papa'**: contiene solo gli slot assegnati al papa'.
 - Ogni genitore aggiunge al proprio Google Calendar solo il proprio feed, vedendo cosi' esclusivamente i momenti in cui la figlia sta con lui/lei.
 - I feed vengono generati dinamicamente tramite Firebase Cloud Functions (endpoint HTTP che restituiscono file .ics).
+- Ogni evento nel feed iCal ha come titolo "Emma 👧❤️🎈".
+- Gli URL dei feed sono accessibili dall'interfaccia tramite un **pulsante FAB** (icona calendario) che apre un modale con:
+  - I link copiabili per il feed di mamma e papa'.
+  - Un pulsante "Copia" per ciascun link che copia l'URL negli appunti.
+  - Istruzioni su come aggiungere il feed a Google Calendar (Impostazioni > Aggiungi calendario > Da URL).
+- Gli URL dei feed sono derivati dalla configurazione Firebase (`projectId` e `region`), non hardcoded.
 
 ---
 
