@@ -105,7 +105,6 @@ main .loading {
   padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 /* App Header */
