@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useCalendar } from "../hooks/useCalendar";
 import { getMagicWandSlots } from "../lib/magicWand";
@@ -6,6 +6,7 @@ import { exportCalendarToPdf } from "../lib/exportPdf";
 import LoginPage from "./LoginPage";
 import Header, { MONTH_NAMES } from "./Header";
 import Calendar from "./Calendar";
+import ICalModal from "./ICalModal";
 
 function AuthenticatedApp({ userId, userName, onSignOut }: {
   userId: string;
@@ -23,6 +24,8 @@ function AuthenticatedApp({ userId, userName, onSignOut }: {
     goToPreviousMonth,
     goToNextMonth,
   } = useCalendar(userId);
+
+  const [showICalModal, setShowICalModal] = useState(false);
 
   const handleMagicWand = useCallback(async () => {
     const slotsToApply = getMagicWandSlots(year, month);
@@ -84,7 +87,13 @@ function AuthenticatedApp({ userId, userName, onSignOut }: {
             <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
           </svg>
         </button>
+        <button className="fab fab-ical" onClick={() => setShowICalModal(true)} title="Aggiungi a Google Calendar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+          </svg>
+        </button>
       </div>
+      {showICalModal && <ICalModal onClose={() => setShowICalModal(false)} />}
     </div>
   );
 }

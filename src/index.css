@@ -299,6 +299,104 @@ main {
   color: #1b5e20;
 }
 
+.fab-ical:hover {
+  background-color: #90caf9;
+  color: #0d47a1;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  padding: 1rem;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.modal-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-instructions {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ical-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ical-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 55px;
+}
+
+.ical-url {
+  flex: 1;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+}
+
+.ical-copy {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  background: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.ical-copy:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.modal-close {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.5rem 2rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background-color: var(--color-bg);
+}
+
 /* Responsive - Tablet */
 
 @media (max-width: 768px) {
@@ -372,5 +470,18 @@ main {
   .fab svg {
     width: 16px;
     height: 16px;
+  }
+
+  .modal-card {
+    padding: 1.5rem;
+  }
+
+  .ical-row {
+    flex-wrap: wrap;
+  }
+
+  .ical-url {
+    width: 100%;
+    flex: none;
   }
 }
