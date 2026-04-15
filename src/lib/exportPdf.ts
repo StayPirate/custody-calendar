@@ -12,6 +12,12 @@ export async function exportCalendarToPdf(monthName: string, year: number): Prom
     return;
   }
 
+  // Rimuovi l'evidenziamento del giorno corrente prima dello screenshot
+  const todayElement = calendarElement.querySelector(".calendar-day-today");
+  if (todayElement) {
+    todayElement.classList.remove("calendar-day-today");
+  }
+
   const canvas = await html2canvas(calendarElement as HTMLElement, {
     scale: 2,
     useCORS: true,
@@ -49,6 +55,11 @@ export async function exportCalendarToPdf(monthName: string, year: number): Prom
 
   const xOffset = (pageWidth - imgWidth) / 2;
   const yOffset = margin + titleHeight;
+
+  // Ripristina l'evidenziamento del giorno corrente
+  if (todayElement) {
+    todayElement.classList.add("calendar-day-today");
+  }
 
   const imgData = canvas.toDataURL("image/png");
   pdf.addImage(imgData, "PNG", xOffset, yOffset, imgWidth, imgHeight);

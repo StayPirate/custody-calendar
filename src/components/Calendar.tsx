@@ -16,6 +16,11 @@ function Calendar({ year, month, getSlotAssignment, onSlotClick }: CalendarProps
   // Giorno della settimana del primo giorno del mese (0=Lun, 6=Dom)
   const firstDayOfWeek = (new Date(year, month, 1).getDay() + 6) % 7;
 
+  // Determina il giorno corrente (solo se il mese visualizzato è quello attuale)
+  const now = new Date();
+  const todayDay =
+    now.getFullYear() === year && now.getMonth() === month ? now.getDate() : -1;
+
   // Crea le celle vuote per i giorni prima del primo giorno del mese
   const emptyCells = Array.from({ length: firstDayOfWeek }, (_, i) => (
     <div key={`empty-${i}`} className="calendar-day calendar-day-empty" />
@@ -35,6 +40,7 @@ function Calendar({ year, month, getSlotAssignment, onSlotClick }: CalendarProps
         afternoonAssignment={getSlotAssignment(day, "afternoon")}
         onSlotClick={onSlotClick}
         isWeekend={isWeekend}
+        isToday={day === todayDay}
       />
     );
   });

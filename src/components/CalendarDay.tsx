@@ -11,6 +11,7 @@ interface CalendarDayProps {
   afternoonAssignment: SlotAssignment;
   onSlotClick: (day: number, period: DayPeriod) => void;
   isWeekend: boolean;
+  isToday: boolean;
 }
 
 function CalendarDay({
@@ -19,12 +20,13 @@ function CalendarDay({
   afternoonAssignment,
   onSlotClick,
   isWeekend,
+  isToday,
 }: CalendarDayProps) {
   const sameColor = morningAssignment && morningAssignment === afternoonAssignment;
 
   return (
     <div
-      className={`calendar-day${isWeekend ? " calendar-day-weekend" : ""}`}
+      className={`calendar-day${isWeekend ? " calendar-day-weekend" : ""}${isToday ? " calendar-day-today" : ""}`}
       style={sameColor ? { backgroundColor: COLORS[morningAssignment] } : undefined}
     >
       <div className="day-number">{day}</div>

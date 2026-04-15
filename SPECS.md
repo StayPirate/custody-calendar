@@ -46,6 +46,7 @@ L'interfaccia e' volutamente **minimale e priva di elementi superflui**, con l'o
 - Nessuna label, icona o testo aggiuntivo all'interno della cella.
 - Il colore di sfondo di ciascuna meta' indica l'assegnazione corrente.
 - Quando entrambe le meta' hanno la stessa assegnazione, il colore viene applicato uniformemente all'intera cella, evitando artefatti visivi (righe bianche) tra le due meta'.
+- Il numero del giorno corrente e' evidenziato con una **circonferenza rossa** attorno ad esso. L'evidenziamento e' visibile solo nella web UI e **non viene incluso nel PDF** esportato.
 
 **Pulsanti di azione:**
 - I pulsanti di azione (Bacchetta Magica, Reset, Esporta PDF, iCal) sono raggruppati dietro un singolo pulsante "+" (FAB toggle) posizionato fisso in basso a destra dello schermo.
